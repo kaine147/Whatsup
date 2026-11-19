@@ -340,7 +340,7 @@
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-sky-500 flex items-center justify-center font-extrabold text-slate-950 shadow">ES</div>
           <div>
-            <p class="text-sm font-extrabold tracking-wide">E-SHOP PORTAL</p>
+            <p class="text-sm font-extrabold tracking-wide">NPK-SHOP</p>
             <p id="admin-role-badge" class="text-[11px] font-semibold text-emerald-300"></p>
           </div>
         </div>
@@ -401,7 +401,7 @@
         <section id="admin-tab-orders" class="admin-tab-panel bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
           <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
             <div>
-              <h2 class="text-base font-extrabold text-slate-800">Xử lý &amp; Duyệt Đơn hàng (UC05)</h2>
+              <h2 class="text-base font-extrabold text-slate-800">Xử lý &amp; Duyệt Đơn hàng</h2>
               <p class="text-xs text-slate-500">Duyệt đơn sinh mã vận đơn tự động hoặc hủy đơn để hoàn trả số lượng tồn kho.</p>
             </div>
             <select id="admin-order-filter" onchange="renderAdminOrders()" class="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold focus:outline-none focus:border-sky-500">
@@ -434,7 +434,7 @@
         <section id="admin-tab-inventory" class="hidden admin-tab-panel bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
           <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
             <div>
-              <h2 class="text-base font-extrabold text-slate-800">Quản lý Sản phẩm &amp; Tồn kho (UC06)</h2>
+              <h2 class="text-base font-extrabold text-slate-800">Quản lý Sản phẩm &amp; Tồn kho</h2>
               <p class="text-xs text-slate-500">Cảnh báo tồn kho thấp (&le; 10 sản phẩm). Mọi cập nhật hiển thị ngay trên Cửa hàng.</p>
             </div>
             <button onclick="openProductFormModal()" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-emerald-600 to-sky-600 hover:opacity-95 shadow-sm">
@@ -464,7 +464,7 @@
           <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
             <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
               <div>
-                <h2 class="text-base font-extrabold text-slate-800">Báo cáo &amp; Thống kê Doanh thu (UC07)</h2>
+                <h2 class="text-base font-extrabold text-slate-800">Báo cáo &amp; Thống kê Doanh thu</h2>
                 <p class="text-xs text-slate-500">Biểu đồ trực quan theo kỳ và xuất báo cáo CSV chuẩn UTF-8 BOM cho Excel.</p>
               </div>
               <div class="flex flex-wrap items-center gap-2">
@@ -898,7 +898,7 @@
             email: 'nhanvien@eshop.vn',
             password: '123456',
             so_dien_thoai: '0897654321',
-            dia_chi: 'Kho Trung tâm E-SHOP, Quận 7, TP.HCM',
+            dia_chi: 'Kho Trung tâm NPK-SHOP, Quận 7, TP.HCM',
             vai_tro: 'NHAN_VIEN',
             hang_thanh_vien: 'Nhân viên Vận hành',
             trang_thai: true
@@ -909,7 +909,7 @@
             email: 'admin@eshop.vn',
             password: '123456',
             so_dien_thoai: '0789654321',
-            dia_chi: 'Trụ sở chính E-SHOP, Quận 1, TP.HCM',
+            dia_chi: 'Trụ sở chính NPK-SHOP, Quận 1, TP.HCM',
             vai_tro: 'ADMIN',
             hang_thanh_vien: 'Quản trị viên Hệ thống',
             trang_thai: true
@@ -2272,7 +2272,7 @@
       const user = state.currentUser;
       const isAdmin = user.vai_tro === 'ADMIN';
 
-      document.getElementById('admin-role-badge').textContent = isAdmin ? 'Quản trị viên (ADMIN)' : 'Nhân viên (NHAN_VIEN)';
+      document.getElementById('admin-role-badge').textContent = isAdmin ? 'Quản trị viên' : 'Nhân viên';
       document.getElementById('admin-user-name').textContent = user.ho_ten;
       document.getElementById('admin-user-email').textContent = user.email;
 
@@ -2282,9 +2282,9 @@
       }
 
       const menuItems = [
-        { id: 'orders', label: 'Xử lý Đơn hàng (UC05)', allowStaff: true, icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
-        { id: 'inventory', label: 'Sản phẩm & Kho (UC06)', allowStaff: true, icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
-        { id: 'reports', label: 'Báo cáo Thống kê (UC07)', allowStaff: false, icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+        { id: 'orders', label: 'Xử lý Đơn hàng', allowStaff: true, icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2' },
+        { id: 'inventory', label: 'Sản phẩm & Kho', allowStaff: true, icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4' },
+        { id: 'reports', label: 'Báo cáo Thống kê', allowStaff: false, icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
         { id: 'vouchers', label: 'Quản lý Voucher', allowStaff: false, icon: 'M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z' },
         { id: 'accounts', label: 'Quản lý Tài khoản', allowStaff: false, icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' }
       ];
